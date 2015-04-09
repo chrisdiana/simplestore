@@ -1,5 +1,4 @@
 # simpleStore
----
 
 [simpleStore](http://cdmedia.github.io/simplestore) is a clean, responsive
 storefront boilerplate with no database or backend. simpleStore is built on
@@ -12,7 +11,6 @@ customizable experience.
 
 
 # Features
----
 
 * No Databases, all client-side (just simple HTML, CSS & Javascript)
 * Lightweight & Fast
@@ -24,13 +22,11 @@ customizable experience.
 * For more features check out [simpleCart.js](http://simplecartjs.org)
 
 # Demo
----
 
 You can see a working demo [here](http://cdmedia.github.io/simplestore/demo/)
 
 
 # Installation
----
 
 Install with Bower
 
@@ -38,11 +34,10 @@ Install with Bower
 install bower
 ```
 
-or manually install using the latest [release]()
+or manually install using the latest [release](https://github.com/cdmedia/simplestore/raw/master/release.zip)
 
 
 # Setup
----
 
 1. Configure your payment options in `js/simpleStore.js`.
 
@@ -58,7 +53,6 @@ checkout: {
 
 
 ## Credit where credit is due
----
 
 For further documentation on expanding/tweaking simpleStore, check out the
 framework/plugin pages.
@@ -72,12 +66,10 @@ framework/plugin pages.
 
 
 # Contributing
----
 
 All forms of contribution are welcome: bug reports, bug fixes, pull requests and simple suggestions. Thanks!
 
 
 ## List of contributors
----
 
 You can find the list of contributors [here](https://github.com/cdmedia/simplestore/graphs/contributors).
