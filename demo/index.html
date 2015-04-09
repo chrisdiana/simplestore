@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>simpleStore</title>
+  <meta name="description" content="A clean, responsive storefront boilerplate with no database or backend">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/simpleStore.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/simpleStore.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+
+     <div class="row" style="margin-top: 20px;">
+        <div class="brand">
+          <h5><i class="fa fa-shopping-cart"></i> simpleStore</h5>
+        </div>
+        <a class="button button-primary u-pull-right" data-featherlight="#cart"><i class="fa fa-shopping-cart"></i> Cart <span class="simpleCart_total"></span></a>
+    </div>
+
+    <div class="row">
+
+      <div class="one-third column">
+        <div class="simpleCart_shelfItem">
+            <img src="http://upload.wikimedia.org/wikipedia/commons/c/c6/Grey_Tshirt.jpg" class="item_thumb" />
+            <h5 class="item_name">Awesome T-shirt </h5>
+            <select class="item_size">
+                <option value="Small"> Small </option>
+                <option value="Medium"> Medium </option>
+                <option value="Large"> Large </option>
+            </select>
+            <div class="qty">QTY</div><input type="text" value="1" class="item_Quantity">
+            <span class="item_price">$35.99</span>
+            <a class="item_add button u-pull-right" href="javascript:;"> Add to Cart </a>
+        </div>
+      </div>
+
+      <div class="one-third column">
+        <div class="simpleCart_shelfItem">
+            <img src="http://upload.wikimedia.org/wikipedia/commons/2/24/Blue_Tshirt.jpg" class="item_thumb" />
+            <h5 class="item_name">Cool T-shirt </h5>
+            <select class="item_size">
+                <option value="Small"> Small </option>
+                <option value="Medium"> Medium </option>
+                <option value="Large"> Large </option>
+            </select>
+            <div class="qty">QTY</div><input type="text" value="1" class="item_Quantity">
+            <span class="item_price">$20.99</span>
+            <a class="item_add button u-pull-right" href="javascript:;"> Add to Cart </a>
+        </div>
+      </div>
+
+       <div class="one-third column">
+        <div class="simpleCart_shelfItem">
+            <img src="http://upload.wikimedia.org/wikipedia/commons/c/c6/Grey_Tshirt.jpg" class="item_thumb" />
+            <h5 class="item_name">Fun T-shirt </h5>
+            <select class="item_size">
+                <option value="Small"> Small </option>
+                <option value="Medium"> Medium </option>
+                <option value="Large"> Large </option>
+            </select>
+            <div class="qty">QTY</div><input type="text" value="1" class="item_Quantity">
+            <span class="item_price">$15.99</span>
+            <a class="item_add button u-pull-right" href="javascript:;"> Add to Cart </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+ <!-- Cart
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="hidden">
+    <div id="cart">
+        <h2>Cart</h2>
+        <div class="row">
+
+          <div class="eight columns">
+            <div class="simpleCart_items"></div>
+          </div>
+
+          <div class="four columns">
+            <div class="cart_info">
+              <div class="cart_info_item cart_itemcount">Items: <div class="simpleCart_quantity"></div></div>
+              <div class="cart_info_item cart_taxrate">Tax Rate: <div class="simpleCart_taxRate"></div></div>
+              <div class="cart_info_item cart_tax">Tax: <div class="simpleCart_tax"></div></div>
+              <div class="cart_info_item cart_shipping">Shipping: <div class="simpleCart_shipping"></div></div>
+              <div class="cart_info_item cart_total"><b>Total: <div class="simpleCart_grandTotal"></div></b></div>
+            </div>
+            <a href="javascript:;" class="simpleCart_empty button u-pull-left">Empty Cart <i class="fa fa-trash-o"></i></a>
+            <a href="javascript:;" class="button button-primary simpleCart_checkout u-pull-right">Checkout <i class="fa fa-arrow-right"></i></a>
+          </div>
+
+        </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+<!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src="js/jquery.min.js"></script>
+<script src="js/simpleStore.min.js"></script>
+<script src="js/config.js"></script>
+</html>
