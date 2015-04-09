@@ -1,0 +1,14 @@
+/*
+ * simpleCart V1.0.0
+ * Copyright 2015 Chris Diana
+ * www.cdmedia.github.io/simplestore
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+@import '../bower_components/skeleton/css/normalize.css';
+@import '../bower_components/skeleton/css/skeleton.css';
+@import '../bower_components/featherlight/release/featherlight.min.css';
+@import '../bower_components/fontawesome/css/font-awesome.min.css';
+
+.hidden{display:none}.brand{display:block;float:left}.simpleCart_shelfItem{border:1px solid #EFEFEF;padding:20px;margin:15px 0}.item_thumb{height:150px;display:block;margin:0 auto;padding-bottom:10px}.item_size{display:block;float:left;margin-right:10px}.item_Quantity{display:block;width:50px}.qty{display:block;float:left;line-height:40px;margin-right:10px}.item_price{font-weight:700;font-size:20px;line-height:35px}.simpleCart_items{display:table;border-collapse:collapse;width:100%}.simpleCart_items div:first-child{width:100%}.headerRow{display:table-row;font-weight:700;border-bottom:1px solid #E1E1E1}.headerRow div{display:table-cell;padding:10px}.itemRow.odd{background:#FAFAFA}.itemRow{display:table-row;border-bottom:1px solid #E1E1E1}.itemRow:last-child{border-bottom:0 solid #fff}.itemRow div{display:table-cell;padding:10px}.itemRow .item-quantity{text-align:center}.simpleCart_decrement,.simpleCart_increment{font-size:18px;line-height:5px;text-decoration:none}.cart_info{text-align:right;padding:0 0 15px}.cart_info div{display:inline}.cart_info_item{display:block!important}.cart_total{font-size:20px}
