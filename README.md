@@ -1,14 +1,17 @@
 # simpleStore
 
 [simpleStore](http://cdmedia.github.io/simplestore) is a clean, responsive
-storefront boilerplate with no database or backend. simpleStore is built on
+storefront boilerplate with no database you can setup in minutes. simpleStore is built on
 [simpleCart.js](http://simplecartjs.org) and [Skeleton](http://getskeleton.com)
-CSS Framework and for a lightweight, fast, simple to use, and completely
+CSS Framework for a lightweight, fast, simple to use, and completely
 customizable experience.
 
 ![simpleStore Screenshot](https://raw.githubusercontent.com/cdmedia/simplestore/gh-pages/images/screenshot-full.png)
 ![simpleStore Cart Screenshot](https://raw.githubusercontent.com/cdmedia/simplestore/gh-pages/images/screenshot-full-cart.png)
 
+---
+simpleStore Bootstrap version coming soon.
+---
 
 # Features
 
@@ -49,6 +52,7 @@ checkout: {
 ```
 
 2. Edit the `js/simpleStore.js` to your liking.
+
 3. Add additional products using the `<div class="simpleCart_shelfItem"></div>` tags.
 
 
