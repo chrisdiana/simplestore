@@ -1,61 +1,317 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<!doctype html>
+<!--[if lt IE 7]><html lang="en" class="no-js ie6"><![endif]-->
+<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>simpleStore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="js/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="css/freeze.css">
+
+    <script type="text/javascript" src="js/modernizr.custom.32033.js"></script>
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <title>Simplestore by cdmedia</title>
-  </head>
+</head>
 
-  <body>
-    <div id="container">
-      <div class="inner">
+<body>
 
-        <header>
-          <h1><i class="fa fa-shopping-cart"></i> simpleStore</h1>
-          <h2>A clean, responsive storefront boilerplate with no database or backend</h2>
-        </header>
-        <img src="images/banner.png" />
+    <div class="pre-loader">
+        <div class="load-con">
+            <a class="logo">simpleStore</a>
+            <div class="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/cdmedia/simplestore/raw/master/release.zip" id="download-zip" class="button"><span><i class="fa fa-download"></i> Download .zip</span></a>
-          <a href="http://cdmedia.github.io/simplestore/demo/" class="button"><span><i class="fa fa-desktop"></i> Online Demo</span></a>
-          <a href="https://github.com/cdmedia/simplestore" id="view-on-github" class="button"><span><i class="fa fa-github"></i> View on GitHub</span></a>
+    <header>
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="fa fa-bars fa-lg"></span>
+                    </button>
+                    <a class="navbar-brand logo" href="index.html"><i class="fa fa-shopping-cart"></i> simpleStore</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#why">Why simpleStore?</a></li>
+                        <li><a href="#features">features</a></li>
+                        <li><a target="_blank" href="http://cdmedia.github.io/simplestore/demo/">demo</a></li>
+                        <li><a class="getApp" href="#getApp">Download</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-->
+        </nav>
+
+        <!--RevSlider-->
+        <div class="tp-banner-container">
+            <div class="tp-banner" >
+                <ul>
+                    <!-- SLIDE 2 -->
+                    <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
+                        <!-- MAIN IMAGE -->
+                        <img src="img/transparent.png"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                        <!-- LAYERS -->
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption lfb fadeout hidden-xs"
+                            data-x="center"
+                            data-y="bottom"
+                            data-hoffset="0"
+                            data-voffset="0"
+                            data-speed="1000"
+                            data-start="700"
+                            data-easing="Power4.easeOut">
+                            <img src="img/freeze/Slides/freeze-slide2.png" alt="">
+                        </div>
+
+                        <div class="tp-caption large_white_light sft" data-x="center" data-y="250" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1400" data-easing="Power4.easeOut">
+                            Clean, responsive storefront boilerplate.
+                        </div>
+                         <div class="tp-caption small_light_white sft" data-x="right" data-y="250" data-hoffset="-40" data-voffset="-50" data-speed="1000" data-start="1800" data-easing="Power4.easeOut">
+                            (No database or backend.)
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Why -->
+    <div class="wrapper">
+
+        <section id="why">
+            <div class="container">
+
+                <div class="section-heading scrollpoint sp-effect3">
+                    <h1>Why simpleStore?</h1>
+                    <div class="divider"></div>
+                    <p>Have a store up and running in <b>minutes</b> not days.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="about-item scrollpoint sp-effect2">
+                            <i class="fa fa-download fa-2x"></i>
+                            <h3>Easy setup</h3>
+							<p>It's just HTML/CSS/JS so you can throw it up on
+							any server and you are good to go.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6" >
+                        <div class="about-item scrollpoint sp-effect5">
+                            <i class="fa fa-mobile fa-2x"></i>
+                            <h3>Mobile Responsive</h3>
+							<p>Built on Skeleton Framework, so it's fast and fully mobile
+							responsive.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6" >
+                        <div class="about-item scrollpoint sp-effect5">
+                            <i class="fa fa-sliders fa-2x"></i>
+                            <h3>Easily Customizable</h3>
+                            <p>It's a clean slate to start from. Customize
+							simpleStore to your client's
+							needs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6" >
+                        <div class="about-item scrollpoint sp-effect1">
+                            <i class="fa fa-plus fa-2x"></i>
+                            <h3>Open-source</h3>
+                            <p>SimpleStore's core is open source, so you have the
+							community behind you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+        <!-- /End Why -->
 
-        <hr>
-
-        <section id="main_content">
-          <p>A free and open-source simple online store built with just HTML, CSS and Javascript. No database. No backend.</p>
-
-          <p>simpleStore is built on <a href="http://simplecartjs.org" target="_blank">simpleCart.js</a> and <a href="http://getskeleton.com" target="_blank">Skeleton CSS Framework</a> for a lightweight, fast, simple to use, and completely customizable experience.
-          For more information/documentation, visit their websites.
+        <!-- Features -->
+        <section id="features">
+            <div class="container">
+                <div class="section-heading scrollpoint sp-effect3">
+                    <h1>Features</h1>
+                    <div class="divider"></div>
+                    <p></p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 scrollpoint sp-effect1">
+                        <div class="media media-left feature">
+                            <a class="pull-right" href="#">
+                                <i class="fa fa-ban fa-2x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">No Backend</h3>
+                               	No Databases, all client-side (just simple HTML,
+								CSS & Javascript)
+                            </div>
+                        </div>
+                        <div class="media media-left feature">
+                            <a class="pull-right" href="#">
+                                <i class="fa fa-rocket fa-2x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Lightweight & Fast</h3>
+								Built on Skeleton Framework & simpleCart.js, so it's fast
+                            </div>
+                        </div>
+                        <div class="media media-left feature">
+                            <a class="pull-right" href="#">
+                                <i class="fa fa-building-o fa-2x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Tax Rate Calculations</h3>
+								Fully customizable tax rate calculations.
+                            </div>
+                        </div>
+                        <div class="media media-left feature">
+                            <a class="pull-right" href="#">
+                                <i class="fa fa-gears fa-2x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Unlimited product attributes</h3>
+								Adjust product attributes to your clients needs.
+                            </div>
+                        </div>
+                        <div class="media media-left feature">
+                            <a class="pull-right" href="#">
+                                <i class="fa fa-send-o fa-2x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Shipping</h3>
+								Multiple shipping methods built in.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4" >
+                        <img src="img/freeze/iphone-freeze.png" class="img-responsive scrollpoint sp-effect5" alt="">
+                    </div>
+                    <div class="col-md-4 col-sm-4 scrollpoint sp-effect2">
+                        <div class="media feature">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-dollar fa-2x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Multiple Currencies</h3>
+                               	Plenty of currencies already baked in.
+                            </div>
+                        </div>
+                        <div class="media feature">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-credit-card fa-2x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Payment Gateways</h3>
+								Paypal, Google Checkout, Amazon Payments come
+								standard.
+                            </div>
+                        </div>
+                        <div class="media feature">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-shopping-cart fa-2x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Shopping Cart</h3>
+								Auto shopping cart built in.
+                            </div>
+                        </div>
+                        <div class="media active feature">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-plus fa-2x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">And much more!</h3>
+								Tons more features & plugins check out...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+        <!-- /End Features -->
+
+        <!-- Download -->
+        <section id="getApp">
+            <div class="container-fluid">
+                <div class="section-heading inverse scrollpoint sp-effect3">
+                    <h1>Download simpleStore</h1>
+                    <div class="divider"></div>
+                    <p>Get started! Check out the <a class="bottom_link" target="_blank" href="http://cdmedia.github.io/simplestore/demo/">demo</a></p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="hanging-phone scrollpoint sp-effect2 hidden-xs">
+                            <img src="img/freeze/freeze-angled2.png" alt="">
+                        </div>
+                        <div class="platforms">
+                            <a href="https://github.com/cdmedia/simplestore/raw/master/release.zip" class="btn btn-primary inverse scrollpoint sp-effect1">
+                                <i class="fa fa-download fa-3x pull-left"></i>
+                                <span>Download</span><br>
+                                <b>.zip</b>
+                            </a>
+                            <a href="https://github.com/cdmedia/simplestore" class="btn btn-primary inverse scrollpoint sp-effect2">
+                                <i class="fa fa-github fa-3x pull-left"></i>
+                                <span>View on</span><br>
+                                <b>Github</b>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /End Download -->
 
         <footer>
-          Simplestore is maintained by <a href="https://github.com/cdmedia">cdmedia</a><br>
-          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+            <div class="container">
+                <a href="#" class="scrollpoint sp-effect3"></a>
+                <div class="social"></div>
+                <div class="rights"></div>
+            </div>
         </footer>
 
-                  <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-61706457-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-      </div>
     </div>
-  </body>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/placeholdem.min.js"></script>
+    <script src="js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    <script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            appMaster.preLoader();
+        });
+    </script>
+
+</body>
 </html>
