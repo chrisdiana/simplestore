@@ -614,7 +614,7 @@ form textarea.form-control {
   height: auto;
   line-height: normal;
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 767px) {
   .logo {
     width: 100px;
     height: auto;
@@ -1106,8 +1106,11 @@ form .form-control:focus {
 }
 .navbar-default .navbar-brand {
     color: #FFFFFF;
-    font-size: 32px;
+    font-size: 26px;
     font-family: Raleway, HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+a.navbar-brand.logo:hover {
+	color: #DBDBDB;
 }
 a.logo {
     color: #FFFFFF;
@@ -1135,9 +1138,43 @@ header .navbar-default.scrolled .navbar-brand {
     padding: 15px 20px;
     color: #666666;
 }
+header .navbar-default.scrolled .navbar-brand {
+    padding: 18px 20px;
+}
 header .navbar-default.scrolled {
     border-bottom: 0px solid #5B90AA;
 }
 footer {
   padding: 0px 0px;
+}
+.mobile-topbanner {
+	margin: 0 auto;
+	padding-top: 105px;
+	max-width: 400px;
+}
+.mobile-only {
+	display: none;
+}
+
+@media screen and (max-width: 767px) {
+	.mobile-only {
+		display: block;
+	}
+	.tp-banner-container {
+		display: none !important;
+	}
+	.mobile-hidden {
+		display: none !important;
+	}
+	.navbar-default .navbar-brand {
+	    font-size: 24px;
+	    line-height: 34px;
+	}
+	header .navbar-default.scrolled {
+		background: #fff;
+		border-bottom: 0px solid #5B90AA;
+	}
+	header .navbar-default.scrolled .navbar-toggle {
+		color: #666666;
+	}
 }
