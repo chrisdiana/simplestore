@@ -6,11 +6,10 @@ storefront boilerplate with no database you can setup in minutes. simpleStore is
 CSS Framework for a lightweight, fast, simple to use, and completely
 customizable experience.
 
-![simpleStore Screenshot](https://raw.githubusercontent.com/cdmedia/simplestore/gh-pages/images/screenshot-full.png)
-![simpleStore Cart Screenshot](https://raw.githubusercontent.com/cdmedia/simplestore/gh-pages/images/screenshot-full-cart.png)
+![simpleStore Screenshot](https://raw.githubusercontent.com/cdmedia/simplestore/gh-pages/images/screenshot-v1.1-full.png)
+![simpleStore Cart Screenshot](https://raw.githubusercontent.com/cdmedia/simplestore/gh-pages/images/screenshot-v1.1-cart.png)
+![simpleStore Detail Screenshot](https://raw.githubusercontent.com/cdmedia/simplestore/gh-pages/images/screenshot-v1.1-detail.png)
 
----
-simpleStore Bootstrap version coming soon.
 ---
 
 # Features
@@ -37,12 +36,12 @@ Install with Bower
 install bower
 ```
 
-or manually install using the latest [release](https://github.com/cdmedia/simplestore/raw/master/release.zip)
+or manually install using the latest [release](https://github.com/cdmedia/simplestore/releases/latest)
 
 
 # Setup
 
-1. Configure your payment options in `js/simpleStore.js`.
+1.Configure your payment options in `js/config.js`.
 
 ```
 checkout: {
@@ -51,9 +50,18 @@ checkout: {
 },
 ```
 
-2. Edit the `js/simpleStore.js` to your liking.
+2.Edit the `js/config.js` to your liking.
 
-3. Add additional products using the `<div class="simpleCart_shelfItem"></div>` tags.
+3.Add additional products in the `products.json` file.
+
+## HTML Version
+
+If you are looking for something more basic, check out the [HTML version on this
+branch](https://github.com/cdmedia/simplestore/tree/simplestore-html).
+The HTML version uses plain HTML to build the store instead of a JSON
+file.
+
+Add additional products using the `<div class="simpleCart_shelfItem"></div>` tags.
 
 
 ## Credit where credit is due
@@ -63,7 +71,6 @@ framework/plugin pages.
 
 * [Skeleton](http://getskeleton.com)
 * [simpleCart.js](http://simplecartjs.org)
-* [Featherlight.js](http://noelboss.github.io/featherlight)
 * [Normalize.css](http://necolas.github.io/normalize.css)
 * [FontAwesome](http://fortawesome.github.io/Font-Awesome)
 * [jQuery](https://jquery.com/)
