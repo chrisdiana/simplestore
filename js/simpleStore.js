@@ -1,3 +1,11 @@
+/*
+ * simpleStore V1.1.0
+ * Copyright 2015 Chris Diana
+ * www.cdmedia.github.io/simplestore
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
 var simpleStore = {
 
     products : [],
