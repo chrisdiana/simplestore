@@ -240,4 +240,8 @@ a.close:hover {
     .simpleCart_items {
         font-size: 12px;
     }
+    /* Better mobile support for cart */
+    .item-decrement, .item-increment, .item-total {
+        display: none !important;
+    }
 }

@@ -75,6 +75,13 @@ framework/plugin pages.
 * [FontAwesome](http://fortawesome.github.io/Font-Awesome)
 * [jQuery](https://jquery.com/)
 
+### A note about JavaScript shopping carts
+
+ALL JavaScript shopping carts are NOT fullproof. Make sure to keep track of your
+sales whichever payment gateway you choose. Just like in real life, if someone
+walks into your store and changes the price tag, you will certainly not honor
+those changes.
+
 
 # Contributing
 
