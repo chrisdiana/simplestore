@@ -77,8 +77,9 @@ framework/plugin pages.
 
 ### A note about JavaScript shopping carts
 
-ALL JavaScript shopping carts are NOT fullproof. Make sure to keep track of your
-sales whichever payment gateway you choose. Just like in real life, if someone
+ALL JavaScript shopping carts are NOT fullproof. Because simpleStore is fully
+client-side, some users may attempt to alter prices before checkout. Make
+sure to monitor your sales. Just like in real life, if someone
 walks into your store and changes the price tag, you will certainly not honor
 those changes.
 
