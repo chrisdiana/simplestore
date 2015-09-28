@@ -33,7 +33,7 @@ You can see a working demo [here](http://cdmedia.github.io/simplestore/demo/)
 Install with Bower
 
 ```
-install bower
+bower install
 ```
 
 or manually install using the latest [release](https://github.com/cdmedia/simplestore/releases/latest)
