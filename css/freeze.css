@@ -1166,3 +1166,36 @@ section .section-heading .divider:after {
 		color: #666666;
 	}
 }
+
+.section-heading.bottom-header {
+    margin: 0px 0 32px;
+}
+
+#mc_embed_signup {
+    z-index: 999999999;
+    display: block;
+    position: relative;
+}
+p.email-updates {
+    color: #fff;
+    margin-top: 10px;
+}
+input#mce-EMAIL {
+    border-radius: 3px;
+    border: 0px;
+    padding: 12px;
+    width: 275px;
+    margin-bottom: 20px;
+}
+
+input#mc-embedded-subscribe {
+    background-color: #59C6F8;
+    border: 0px;
+    border-radius: 5px;
+    padding: 5px 16px;
+    color: #FFF;
+    font-size: 16px;
+}
+input#mc-embedded-subscribe:hover {
+	background-color: #51B5E4;
+}
