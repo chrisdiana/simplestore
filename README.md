@@ -41,7 +41,9 @@ or manually install using the latest [release](https://github.com/cdmedia/simple
 
 # Setup
 
-1.Configure your payment options in `js/config.js`.
+1.Make sure simpleStore is on a web server (any type will do as long as it can serve static web pages).
+
+2.Configure your payment options in `js/config.js`.
 
 ```
 checkout: {
@@ -50,9 +52,18 @@ checkout: {
 },
 ```
 
-2.Edit the `js/config.js` to your liking.
+3.Edit the `js/config.js` to your liking.
 
-3.Add additional products in the `products.json` file.
+4.Add additional products in the `products.json` file.
+
+# Using Plugins
+
+To use a plugin, add a reference just before your `config.js` file
+
+```
+<script src="plugins/google-sheets.js"></script>
+<script src="js/config.js"></script>
+```
 
 ## HTML Version
 
@@ -62,7 +73,6 @@ The HTML version uses plain HTML to build the store instead of a JSON
 file.
 
 Add additional products using the `<div class="simpleCart_shelfItem"></div>` tags.
-
 
 ## Credit where credit is due
 
@@ -86,7 +96,8 @@ those changes.
 
 # Contributing
 
-All forms of contribution are welcome: bug reports, bug fixes, pull requests and simple suggestions. Thanks!
+All forms of contribution are welcome: bug reports, bug fixes, pull requests and simple suggestions.
+If you do wish to contribute, please follow the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript) Thanks!
 
 
 ## List of contributors

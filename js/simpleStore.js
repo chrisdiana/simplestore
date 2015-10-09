@@ -1,5 +1,5 @@
 /*
- * simpleStore V1.1.0
+ * simpleStore V1.1.1
  * Copyright 2015 Chris Diana
  * www.cdmedia.github.io/simplestore
  * Free to use under the MIT license.
@@ -9,6 +9,7 @@
 var simpleStore = {
 
     products: [],
+    plugins: {},
 
     // Default settings
     settings: {
@@ -44,42 +45,6 @@ var simpleStore = {
         }
         callback(); // check user config options
         return target;
-    },
-
-    initJSON: function (s) {
-        var errorMsg = 'There was an error loading the JSON file.' +
-            ' Please make sure you have "' + s.JSONFile + '" file in' +
-            ' your main directory.';
-
-        // Check to makes sure file exists
-        $.get(s.JSONFile)
-            .success(function () {
-                // Get product data from JSON file
-                $.getJSON(s.JSONFile, function (data) {
-                    data.products.forEach(function (product, index) {
-                        product.id = index + 1;
-                        simpleStore.products.push(product);
-                    });
-                })
-                    .done(function () {
-                        // Manually trigger on initial load
-                        $(window).trigger('hashchange');
-                    })
-                    .fail(function () {
-                        setTimeout(function () {
-                            simpleStore.renderError(s, errorMsg);
-                        }, 1000);
-                    });
-            })
-            .fail(function () {
-                setTimeout(function () {
-                    simpleStore.renderError(s, errorMsg);
-                }, 1000);
-            });
-    },
-
-    checkMode: function () {
-        return this.settings.mode;
     },
 
     render: function (url, s) {
@@ -197,8 +162,13 @@ var simpleStore = {
             }
         });
 
-
         return optionsLayout;
+    },
+
+    renderProductPageOptions: function (option) {
+        if (option.OneOfAKind) {
+            $('.item_qty').hide();
+        }
     },
 
     renderSingleProduct: function (id, s) {
@@ -228,12 +198,6 @@ var simpleStore = {
         });
     },
 
-    renderProductPageOptions: function (option) {
-        if (option.OneOfAKind) {
-            $('.item_qty').hide();
-        }
-    },
-
     renderCart: function (s) {
         s.container.fadeOut(s.fadeSpeed, function () {
             s.cartContainer.fadeIn(s.fadeSpeed);
@@ -255,6 +219,50 @@ var simpleStore = {
         });
     },
 
+    initJSON: function (s) {
+        var errorMsg = 'There was an error loading the JSON file.' +
+            ' Please make sure you have "' + s.JSONFile + '" file in' +
+            ' your main directory.';
+
+        // Check to makes sure file exists
+        $.get(s.JSONFile)
+            .success(function () {
+                // Get product data from JSON file
+                $.getJSON(s.JSONFile, function (data) {
+                    simpleStore.setProducts(data.products);
+                })
+                    .fail(function () {
+                        setTimeout(function () {
+                            simpleStore.renderError(s, errorMsg);
+                        }, 1000);
+                    });
+            })
+            .fail(function () {
+                setTimeout(function () {
+                    simpleStore.renderError(s, errorMsg);
+                }, 1000);
+            });
+    },
+
+    checkMode : function(s) {
+        if (s.hasOwnProperty("spreadsheetID")) {
+            s.mode = "Google";
+        }
+    },
+
+    setProducts: function (products, s) {
+
+        if(products.length > 0) {
+            products.forEach(function (product, index) {
+                product.id = index + 1;
+                simpleStore.products.push(product);
+            });
+        }
+
+        // Manually trigger on initial load
+        $(window).trigger('hashchange');
+    },
+
     generateCart: function (s) {
         var tmpl = $('#cart-template').html(),
             $tmpl = $(tmpl);
@@ -272,13 +280,27 @@ var simpleStore = {
             $('.brand').html('<h5>' + s.brand + '</h5>');
         }
 
-        // Get products from JSON
-        this.initJSON(s);
+        // Set mode
+        simpleStore.checkMode(s);
 
         // Check for hash changes
         $(window).on('hashchange', function () {
             simpleStore.render(window.location.hash, s);
         });
+
+        // Set products based on mode
+        switch (s.mode) {
+            case 'JSON':
+                this.initJSON(s);
+                break;
+            case 'Google':
+                simpleStore.plugins.google.init(function (products) {
+                    simpleStore.setProducts(products, s);
+                });
+                break;
+            default:
+                this.initJSON(s);
+        }
 
         // Because simpleCart items appends to cart, set up only once
         this.generateCart(s);
@@ -299,7 +321,6 @@ var simpleStore = {
     init: function (options) {
         if ($.isPlainObject(options)) {
             return this.extend(this.settings, options, function () {
-                simpleStore.checkMode();
                 simpleStore.generateStore();
             });
         }

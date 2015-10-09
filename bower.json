@@ -1,7 +1,7 @@
 {
     "name": "simpleStore",
     "description": "A clean, responsive storefront boilerplate with no database or backend.",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "homepage": "http://cdmedia.github.io/simplestore",
     "repository": {
 	    "type": "git",
