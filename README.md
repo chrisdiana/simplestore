@@ -23,6 +23,10 @@ customizable experience.
 * Payment Gateways (Paypal, Google Checkout, Amazon Payments)
 * For more features check out [simpleCart.js](http://simplecartjs.org)
 
+# Plugins
+
+* Google Sheets (Control products from a Google Sheet instead of JSON file)
+
 # Demo
 
 You can see a working demo [here](http://cdmedia.github.io/simplestore/demo/)
