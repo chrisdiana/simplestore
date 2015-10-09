@@ -1,9 +1,10 @@
 /*
  * To use Google spreadsheet as your database, follow the steps below:
- * 1. Create a new Google spreadsheet
- * 2. Set sharing permissions to either “Public” or set to “Anyone with link can view”
- * 3. Publish the sheet (File -> Publish to the web -> Publish)
- * 4. Add the spreadsheet ID to your 'config.js' ( spreadsheetID : "XXXXXXXXXXXXXXXXXXXXXXX" )
+ * 1. Use the "DemoSpreadsheet.xlsx" as a starting point
+ * 2. Create a new Google spreadsheet
+ * 3. Set sharing permissions to either “Public” or set to “Anyone with link can view”
+ * 4. Publish the sheet (File -> Publish to the web -> Publish)
+ * 5. Add the spreadsheet ID to your 'config.js' ( spreadsheetID : "XXXXXXXXXXXXXXXXXXXXXXX" )
  */
 
 simpleStore.plugins.google = (function() {
