@@ -23,6 +23,9 @@ a.hover {
 .brand:hover {
     color: #777;
 }
+.brand img {
+	max-height: 50px;
+}
 .simpleCart_shelfItem {
     border: 1px solid #EFEFEF;
     padding: 25px 18px;
