@@ -1,4 +1,5 @@
 /*
+ * SimpleStore Google Sheets Plugin
  * To use Google spreadsheet as your database, follow the steps below:
  * 1. Use the "DemoSpreadsheet.xlsx" as a starting point
  * 2. Create a new Google spreadsheet
@@ -61,11 +62,17 @@ simpleStore.plugins.google = (function() {
 			});
 	}
 
+	function validatePrices(s, checkoutData) {
+	}
+
 	return {
 		init: function(callback) {
 			getSpreadsheetData(simpleStore.settings, function(){
 				callback(storeProducts);
 			});
+		},
+		validate: function(checkoutData) {
+			validatePrices(simpleStore.settings, checkoutData);
 		}
 	};
 })();

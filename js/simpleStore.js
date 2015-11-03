@@ -1,5 +1,5 @@
 /*
- * simpleStore V1.1.1
+ * simpleStore V1.2
  * Copyright 2015 Chris Diana
  * www.cdmedia.github.io/simplestore
  * Free to use under the MIT license.
@@ -208,51 +208,93 @@ var simpleStore = {
         var tmpl = $('#error-template').html(),
             $tmpl = $(tmpl);
 
-        s.container.fadeOut(s.fadeSpeed, function () {
-            var errorMsg = '';
-            if (msg.length) {
-                errorMsg = '<p>' + msg + '</p>';
-            }
-            s.container.append($tmpl);
-            s.container.append(errorMsg);
-            s.container.fadeIn(s.fadeSpeed);
-        });
+		// Empty out main container on load
+		s.container.html('').fadeIn(s.fadeSpeed);
+
+		if (msg.length) {
+			$tmpl.find('.error_text').text(msg);
+		}
+		s.container.append($tmpl);
+		s.container.fadeIn(s.fadeSpeed);
+
+		$tmpl.find('.alert_close').on('click', function (e) {
+			e.preventDefault();
+			$tmpl.fadeOut(s.fadeSpeed, function() {
+				$tmpl.remove();
+			});
+		});
     },
+
+	handleFailure:  function(s, errorMsg) {
+		setTimeout(function () {
+			simpleStore.renderError(s, errorMsg);
+		}, 1000);
+	},
 
     initJSON: function (s) {
         var errorMsg = 'There was an error loading the JSON file.' +
             ' Please make sure you have "' + s.JSONFile + '" file in' +
             ' your main directory.';
 
-        // Check to makes sure file exists
+        // Checks to make sure file exists
         $.get(s.JSONFile)
             .success(function () {
                 // Get product data from JSON file
                 $.getJSON(s.JSONFile, function (data) {
                     simpleStore.setProducts(data.products);
                 })
-                    .fail(function () {
-                        setTimeout(function () {
-                            simpleStore.renderError(s, errorMsg);
-                        }, 1000);
-                    });
+                .fail(function () { simpleStore.handleFailure(s, errorMsg); });
             })
-            .fail(function () {
-                setTimeout(function () {
-                    simpleStore.renderError(s, errorMsg);
-                }, 1000);
-            });
+            .fail(function () { simpleStore.handleFailure(s, errorMsg); });
     },
 
-    checkMode : function(s) {
-        if (s.hasOwnProperty("spreadsheetID")) {
+    checkMode : function (s) {
+        if (s.hasOwnProperty("spreadsheetID") || s.hasOwnProperty("spreadsheetId")) {
             s.mode = "Google";
         }
     },
 
-    setProducts: function (products, s) {
+	verifyCheckoutData : function (cdata, adata, v) {
+		for (var d in cdata) {
+			if (cdata.hasOwnProperty(d)) {
+				var cp = cdata[d], cn = cp.name, cpp = cp.price;
+				for (var i = 0; i < adata.length; i++) {
+					var ap = adata[i], an = ap.name, app = ap.price;
+					if (cn === an) {if (cpp != app) { v = false; }}
+				}
+			}
+		}
+		return v;
+	},
 
-        if(products.length > 0) {
+    validatePrices : function (s) {
+        var checkoutData = JSON.parse(localStorage.simpleCart_items),
+			errorMsg = 'There was an error validating your cart.';
+
+		if (s.mode === "JSON") {
+			 $.get(s.JSONFile)
+				.success(function () {
+					$.getJSON(s.JSONFile, function (data) {
+						var JSONData = data.products;
+						if (simpleStore.verifyCheckoutData(checkoutData, JSONData, true)) {
+        					simpleCart.checkout();
+						} else {
+							simpleStore.renderError(s, errorMsg);
+						}
+					})
+                	.fail(function () { simpleStore.handleFailure(s, errorMsg); });
+				})
+                .fail(function () { simpleStore.handleFailure(s, errorMsg); });
+		} else {
+			var plugin = s.mode.toLowerCase();
+			if(simpleStore.plugins[plugin]) {
+				simpleStore.plugins[plugin].validate(checkoutData);
+			}
+		}
+    },
+
+    setProducts: function (products, s) {
+        if (products.length > 0) {
             products.forEach(function (product, index) {
                 product.id = index + 1;
                 simpleStore.products.push(product);
@@ -305,6 +347,12 @@ var simpleStore = {
         // Because simpleCart items appends to cart, set up only once
         this.generateCart(s);
 
+		// Handle Checkout
+        $('.simpleStore_checkout').on('click', function (e) {
+            e.preventDefault();
+            simpleStore.validatePrices(s);
+        });
+
         // View Cart
         $('.simpleStore_viewCart').on('click', function (e) {
             e.preventDefault();
@@ -312,7 +360,7 @@ var simpleStore = {
         });
 
         // Go to home on close
-        $('.close').on('click', function (e) {
+        $('.view_close').on('click', function (e) {
             e.preventDefault();
             window.location.hash = '';
         });

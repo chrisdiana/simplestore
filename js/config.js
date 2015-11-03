@@ -34,7 +34,8 @@ $(function() {
 
 	    // array of item fields that will not be sent to checkout
 	    excludeFromCheckout: [
-	    	'item_qty'
+	    	'qty',
+	    	'thumb'
 	    ],
 
 	    // custom function to add shipping cost

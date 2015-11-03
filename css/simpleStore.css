@@ -1,5 +1,5 @@
 /*
- * simpleStore V1.1.1
+ * simpleStore V1.2
  * Copyright 2015 Chris Diana
  * www.cdmedia.github.io/simplestore
  * Free to use under the MIT license.
@@ -11,23 +11,40 @@ select {
     float: left;
     margin-right: 10px;
 }
+
 a.hover {
     text-decoration: none;
 }
+
+/* Main Layout */
+
+.simpleStore {
+    margin-top: 20px;
+}
+
 .brand {
     display: block;
     float: left;
     text-decoration: none;
     color: #000;
 }
+
 .brand:hover {
     color: #777;
 }
+
+.brand img {
+	max-height: 50px;
+}
+
+/* simpleCart */
+
 .simpleCart_shelfItem {
     border: 1px solid #EFEFEF;
     padding: 25px 18px;
     margin: 15px 0;
 }
+
 .simpleCart_items {
     display: table;
     border-collapse: collapse;
@@ -35,65 +52,82 @@ a.hover {
     min-height: 20px;
     margin-bottom: 50px;
 }
+
 .simpleCart_items div:first-child {
     width: 100%
 }
+
 .simpleCart_decrement, .simpleCart_increment {
     font-size: 18px;
     line-height: 5px;
     text-decoration: none;
 }
+
 .simpleCart_shelfItem label {
     display: block;
     float: left;
     line-height: 40px;
     margin-right: 10px;
 }
+
 .item_thumb, .detail_thumb {
     height: 150px;
     display: block;
     margin: 0 auto;
     padding-bottom: 10px;
 }
+
 .item_Quantity {
     display: inline-block;
     width: 50px;
 }
+
 .item_price {
     font-weight: 700;
     font-size: 20px;
     line-height: 22px;
 }
+
 .item_description {
     margin-top: 1rem;
     margin-bottom: 1.5rem;
 }
+
 .headerRow {
     display: table-row;
     font-weight: 700;
     border-bottom: 1px solid #E1E1E1;
 }
+
 .headerRow div {
     display: table-cell;
     padding: 10px;
 }
+
 .itemRow.odd {
     background: #FAFAFA;
 }
+
 .itemRow {
     display: table-row;
     border-bottom: 1px solid #E1E1E1;
 }
+
 .itemRow:last-child {
     border-bottom: 0 solid #fff;
 }
+
 .itemRow div {
     display: table-cell;
     padding: 10px;
 }
+
 .itemRow .item-quantity {
     text-align: center;
 }
+
+/* Cart */
+
 .cart_info {
     position: absolute;
     bottom: 0px;
@@ -101,40 +135,49 @@ a.hover {
     margin: 22px;
     text-align: right;
 }
+
 .cart_info div {
     display: inline;
 }
+
 .cart_info_item {
     display: block !important;
 }
+
 .cart_total {
     font-size: 20px;
 }
-.simpleStore {
-    margin-top: 20px;
-}
+
+/* Views */
+
 .simpleStore_detailView {
     margin: 15px 0px;
     border: 1px solid #EFEFEF;
     position: relative;
 }
+
 .simpleStore_detailView.simpleCart_shelfItem {
     padding: 26px 18px 8px 18px;
 }
+
 .simpleStore_detailView .item_add {
     margin: 0px;
     margin-bottom: 0px;
 }
+
 .simpleStore_detailView .item_name {
 	margin-bottom: 1rem;
 }
+
 .simpleStore_detailView .item_price {
     display: block;
     margin-bottom: 1.5rem;
 }
+
 .simpleStore_cart_container {
     display: none;
 }
+
 .simpleStore_cart {
     position: relative;
     border: 1px solid #EFEFEF;
@@ -142,21 +185,29 @@ a.hover {
     min-height: 230px;
     margin: 15px 0px;
 }
+
 a.simpleCart_empty {
     color: #CDCDCD;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 14px;
 }
+
 a.simpleCart_empty:hover {
     color: #777;
 }
+
 .simpleCart_checkout {
     margin: 12px 0px 0px 0px;
 }
+
+
+/* Utility */
+
 .hidden {
     display: none;
 }
+
 .loader {
 	display: inline-block;
     font-size: 60px;
@@ -168,6 +219,7 @@ a.simpleCart_empty:hover {
     text-align: center;
     vertical-align: bottom;
 }
+
 a.back {
     position: absolute;
     top: 10px;
@@ -179,9 +231,11 @@ a.back {
     color: #CDCDCD;
     text-decoration: none;
 }
+
 a.back:hover {
     color: #777;
 }
+
 a.close {
     position: absolute;
     top: 18px;
@@ -194,9 +248,11 @@ a.close {
     text-decoration: none;
     font-family: Garamond, "Apple Garamond";
 }
+
 a.close:hover {
     color: #777;
 }
+
 .chevron::before {
 	border-style: solid;
 	border-width: 0.1em 0.1em 0 0;
@@ -211,18 +267,33 @@ a.close:hover {
     left: 0.25em;
 	transform: rotate(-135deg);
 }
+
+.error {
+	background: #FFE5E5;
+	padding: 15px;
+	border-radius: 5px;
+	position: relative;
+    margin-bottom: 10px;
+}
+p.error_text {
+	margin-bottom: 0rem;
+}
+
 @media (max-width: 620px) {
+
    .simpleStore_detailView .item_thumb {
         margin-bottom: 10px;
         display: block;
         width: 100%;
         height: auto;
     }
+
     .simpleStore_detailView .item_add {
         position: inherit;
         display: block;
         width: 100%;
     }
+
     .cart_info {
         position: inherit;
         margin: 0px;
@@ -230,12 +301,15 @@ a.close:hover {
         text-align: left;
         border-top: 1px solid #E1E1E1;
     }
+
     .simpleCart_checkout {
         width: 100%;
     }
+
     .simpleCart_items {
         font-size: 12px;
     }
+
     /* Better mobile support for cart */
     .item-decrement, .item-increment, .item-total {
         display: none !important;

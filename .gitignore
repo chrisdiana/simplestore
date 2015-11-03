@@ -4,3 +4,4 @@ bower_components/*
 release/*
 release.zip
 .idea/
+dev/*
