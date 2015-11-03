@@ -33,7 +33,10 @@ $(function() {
 	    language: "english-us",
 
 	    // array of item fields that will not be sent to checkout
-	    excludeFromCheckout: [],
+	    excludeFromCheckout: [
+	    	'qty',
+	    	'thumb'
+	    ],
 
 	    // custom function to add shipping cost
 	    shippingCustom: null,
