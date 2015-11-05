@@ -78,7 +78,7 @@ simpleStore.plugins.google = (function() {
 
 		getSpreadsheetData(s, true, function() {
 			if(simpleStore.verifyCheckoutData(checkoutData, verifyProducts, true)) {
-        		simpleCart.checkout();
+        		simpleStore.checkout();
 			} else {
 				var errorMsg = 'There was an error validating your cart.';
 				simpleStore.renderError(s, errorMsg);

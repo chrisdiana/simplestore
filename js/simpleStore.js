@@ -254,6 +254,16 @@ var simpleStore = {
         }
     },
 
+	checkout : function (s, checkoutData) {
+		if (!$.isEmptyObject(checkoutData)) {
+        	simpleCart.checkout();
+			s.cartContainer.fadeOut(s.fadeSpeed, function () {
+				s.container.html('<i class="fa fa-spin fa-circle-o-notch loader"></i>');
+				s.container.fadeIn(s.fadeSpeed);
+			});
+		}
+	},
+
 	verifyCheckoutData : function (cdata, adata, v) {
 		for (var d in cdata) {
 			if (cdata.hasOwnProperty(d)) {
@@ -277,7 +287,7 @@ var simpleStore = {
 					$.getJSON(s.JSONFile, function (data) {
 						var JSONData = data.products;
 						if (simpleStore.verifyCheckoutData(checkoutData, JSONData, true)) {
-        					simpleCart.checkout();
+        					simpleStore.checkout(s, checkoutData);
 						} else {
 							simpleStore.renderError(s, errorMsg);
 						}
