@@ -1,10 +1,10 @@
 /*
- * simpleStore v1.3
- * Copyright 2015 Chris Diana
- * www.cdmedia.github.io/simplestore
- * Free to use under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- */
+* simplestore v1.3
+* Copyright 2015 Chris Diana
+* https://github.com/cdmedia/simplestore
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+*/
 
 var simpleStore = {
 

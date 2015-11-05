@@ -15,12 +15,14 @@
   "bugs": {
     "url": "https://github.com/cdmedia/simplestore/issues"
   },
+  "private": true,
   "homepage": "https://github.com/cdmedia/simplestore",
   "devDependencies": {
-		"grunt": "~0.4.4",
-		"grunt-contrib-uglify": "latest",
-		"grunt-contrib-cssmin": "latest",
+    "grunt": "~0.4.4",
     "grunt-contrib-copy": "latest",
-		"grunt-contrib-watch": "latest"
-	}
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-file-append": "0.0.6"
+  }
 }

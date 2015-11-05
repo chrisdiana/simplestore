@@ -6,7 +6,14 @@
  	 * reference differences (import.min.css, jquery)
  	 */
 
-	var banner = '/* <%= pkg.name %> | Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %> (<%= pkg.homepage %>) | <%= pkg.license %> license | v<%= pkg.version %> */';
+	var minBanner = '/* <%= pkg.name %> | Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %> (<%= pkg.homepage %>) | <%= pkg.license %> license | v<%= pkg.version %> */';
+	var largeBanner = '/*' + '\n' +
+		'* <%= pkg.name %> v<%= pkg.version %>' + '\n' +
+		'* Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>' + '\n' +
+		'* <%= pkg.homepage %>' + '\n' +
+		'* Free to use under the MIT license.' + '\n' +
+		'* http://www.opensource.org/licenses/mit-license.php' + '\n' +
+		'*/' + '\n';
 
 	grunt.initConfig({
 
@@ -14,7 +21,7 @@
 
 	 	uglify: {
 			options: {
-				banner: banner + '\n'
+				banner: minBanner + '\n'
 			},
 	 		build: {
 				files: {
@@ -28,6 +35,16 @@
 				files: {
 					'css/simpleStore.min.css': 'css/simpleStore.css'
 				}
+			}
+		},
+
+		file_append: {
+			default_options: {
+				files: [
+					{prepend: minBanner + '\n', input: 'css/simpleStore.min.css'},
+					{prepend: largeBanner + '\n', input: 'css/simpleStore.css'},
+					{prepend: largeBanner + '\n', input: 'js/simpleStore.js'}
+				]
 			}
 		},
 
@@ -49,6 +66,7 @@
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-file-append');
 
-	grunt.registerTask('default', ['uglify', 'cssmin', 'copy']);
+	grunt.registerTask('default', ['uglify', 'cssmin', 'file_append', 'copy']);
  };
