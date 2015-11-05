@@ -1,5 +1,5 @@
 /*
-* simplestore v1.3
+* simplestore
 * Copyright 2015 Chris Diana
 * https://github.com/cdmedia/simplestore
 * Free to use under the MIT license.

@@ -41,9 +41,7 @@
 		file_append: {
 			default_options: {
 				files: [
-					{prepend: minBanner + '\n', input: 'css/simpleStore.min.css'},
-					{prepend: largeBanner + '\n', input: 'css/simpleStore.css'},
-					{prepend: largeBanner + '\n', input: 'js/simpleStore.js'}
+					{prepend: minBanner + '\n', input: 'css/simpleStore.min.css'}
 				]
 			}
 		},
