@@ -1,5 +1,5 @@
 /*
- * simpleStore V1.2
+ * simpleStore v1.3
  * Copyright 2015 Chris Diana
  * www.cdmedia.github.io/simplestore
  * Free to use under the MIT license.
@@ -336,9 +336,14 @@ var simpleStore = {
                 this.initJSON(s);
                 break;
             case 'Google':
-                simpleStore.plugins.google.init(function (products) {
-                    simpleStore.setProducts(products, s);
-                });
+				if(simpleStore.plugins.google) {
+					simpleStore.plugins.google.init(function (products) {
+						simpleStore.setProducts(products, s);
+					});
+				} else {
+					var errorMsg = 'There was an error loading the Google plugin. Make sure it is installed properly.';
+					simpleStore.renderError(s, errorMsg);
+				}
                 break;
             default:
                 this.initJSON(s);

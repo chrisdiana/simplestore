@@ -10,14 +10,16 @@
 
 simpleStore.plugins.google = (function() {
 
-	var storeProducts = [];
+	var storeProducts = verifyProducts = [];
 
-	function getSpreadsheetData(s, callback) {
+	function getSpreadsheetData(s, verify, callback) {
+
+		verify = typeof verify !== 'undefined' ? verify : false;
 
 		var spreadsheetURL = "https://spreadsheets.google.com/feeds/list/" +
 							s.spreadsheetID + "/od6/public/values?alt=json";
 
-		$.getJSON(spreadsheetURL, callback)
+		$.getJSON(spreadsheetURL)
 			.done(function(data) {
 
 				var productsData = data.feed.entry;
@@ -52,22 +54,41 @@ simpleStore.plugins.google = (function() {
 						options : setOptions(options),
 						image : this.gsx$image.$t
 					};
-					storeProducts.push(product);
+
+					if (verify) {
+						verifyProducts.push(product);
+					} else {
+						storeProducts.push(product);
+					}
 				});
 				callback();
 			})
 			.fail(function(data){
-				var errorMsg = 'Error loading spreadsheet data. Make sure the spreadsheet ID is correct.';
+				if (verify) {
+					var errorMsg = 'There was an error validating your cart.';
+				} else {
+					var errorMsg = 'Error loading spreadsheet data. Make sure the spreadsheet ID is correct.';
+				}
 				setTimeout(function(){ simpleStore.renderError(s, errorMsg); }, 1000);
 			});
 	}
 
 	function validatePrices(s, checkoutData) {
+		verifyProducts = [];
+
+		getSpreadsheetData(s, true, function() {
+			if(simpleStore.verifyCheckoutData(checkoutData, verifyProducts, true)) {
+        		simpleCart.checkout();
+			} else {
+				var errorMsg = 'There was an error validating your cart.';
+				simpleStore.renderError(s, errorMsg);
+			}
+		});
 	}
 
 	return {
 		init: function(callback) {
-			getSpreadsheetData(simpleStore.settings, function(){
+			getSpreadsheetData(simpleStore.settings, false, function(){
 				callback(storeProducts);
 			});
 		},
