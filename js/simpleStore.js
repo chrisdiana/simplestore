@@ -18,6 +18,9 @@ var simpleStore = {
         mode: "JSON",
         JSONFile: "products.json",
         fadeSpeed: 200,
+        buttonColor: null,
+        backgroundColor: null,
+        textColor: null,
         container: $('.simpleStore_container'),
         cartContainer: $('.simpleStore_cart_container'),
         rowClass: 'simpleStore_row_',
@@ -337,9 +340,6 @@ var simpleStore = {
 
         var s = this.settings;
 
-		// Setup layout
-		this.setLayout(s);
-
         // Set mode
         this.checkMode(s);
 
@@ -369,6 +369,9 @@ var simpleStore = {
 
         // Because simpleCart items appends to cart, set up only once
         this.generateCart(s);
+
+        // Setup layout
+        this.setLayout(s);
 
 		// Handle Checkout
         $('.simpleStore_checkout').on('click', function (e) {
