@@ -315,6 +315,18 @@ var simpleStore = {
         $(window).trigger('hashchange');
     },
 
+	setLayout: function (s) {
+		// Set brand
+        if (s.brand.match('^http://') || s.brand.match('^https://') || s.brand.match('^www.')) {
+            $('.brand').html('<img src="' + s.brand + '" />');
+        } else {
+            $('.brand').html('<h5>' + s.brand + '</h5>');
+        }
+
+		// Set title
+		$('title').html(s.brand);
+	},
+
     generateCart: function (s) {
         var tmpl = $('#cart-template').html(),
             $tmpl = $(tmpl);
@@ -325,15 +337,11 @@ var simpleStore = {
 
         var s = this.settings;
 
-        // Set brand
-        if (s.brand.match('^http://') || s.brand.match('^https://') || s.brand.match('^www.')) {
-            $('.brand').html('<img src="' + s.brand + '" />');
-        } else {
-            $('.brand').html('<h5>' + s.brand + '</h5>');
-        }
+		// Setup layout
+		this.setLayout(s);
 
         // Set mode
-        simpleStore.checkMode(s);
+        this.checkMode(s);
 
         // Check for hash changes
         $(window).on('hashchange', function () {
