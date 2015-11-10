@@ -1,6 +1,6 @@
 {
   "name": "simplestore",
-  "version": "1.4",
+  "version": "1.5",
   "description": "A clean, responsive storefront boilerplate with no database or backend.",
   "main": "index.html",
   "scripts": {
