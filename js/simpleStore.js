@@ -170,7 +170,7 @@ var simpleStore = {
 
     renderProductPageOptions: function (option) {
         if (option.OneOfAKind) {
-            $('.item_qty').hide();
+            $('.qty').hide();
         }
     },
 
