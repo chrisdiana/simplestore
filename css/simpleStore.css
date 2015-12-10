@@ -286,6 +286,25 @@ p.error_text {
 	margin-bottom: 0rem;
 }
 
+.notify {
+	background: #D9F6FF;
+	background: rgba(81, 81, 81, 0.8);
+	color: #fff;
+	position: fixed;
+	padding: 14px 0;
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+	font-size: 14px;
+	top: 0;
+	right: 0;
+	top: 0;
+	z-index: 9999;
+}
+p.notify_text {
+	margin-bottom: 0rem;
+}
+
 @media (max-width: 920px) {
     .simpleStore_getDetail_container {
         width: 100%;

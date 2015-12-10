@@ -111,32 +111,35 @@ var simpleStore = {
 
             // List layout
             products.forEach(function (product, i) {
-                var tmpl = $('#products-template').html(),
-                    $tmpl = $(tmpl);
 
-                // Set item width
-                $tmpl.first().addClass(itemWidth);
+				if (!product.soldOut) {
+					var tmpl = $('#products-template').html(),
+						$tmpl = $(tmpl);
 
-                // Insert data into template
-                simpleStore.insertData($tmpl, product);
+					// Set item width
+					$tmpl.first().addClass(itemWidth);
 
-                // Render detail view on hash change
-                var getDetail = $tmpl.find('.simpleStore_getDetail');
-                getDetail.on('click', function (e) {
-                    e.preventDefault();
-                    window.location.hash = 'product/' + product.id;
-                });
+					// Insert data into template
+					simpleStore.insertData($tmpl, product);
 
-                // Check where to add new item based on row
-                if (i === 0) {
-                    i = 1;
-                }
-                if (i % (s.numColumns) === 0) {
-                    rowCount++;
-                }
+					// Render detail view on hash change
+					var getDetail = $tmpl.find('.simpleStore_getDetail');
+					getDetail.on('click', function (e) {
+						e.preventDefault();
+						window.location.hash = 'product/' + product.id;
+					});
 
-                // Append to appropriate container
-                $('.' + s.rowClass + rowCount).append($tmpl);
+					// Check where to add new item based on row
+					if (i === 0) {
+						i = 1;
+					}
+					if (i % (s.numColumns) === 0) {
+						rowCount++;
+					}
+
+					// Append to appropriate container
+					$('.' + s.rowClass + rowCount).append($tmpl);
+				}
             });
         });
     },
@@ -232,6 +235,23 @@ var simpleStore = {
 		setTimeout(function () {
 			simpleStore.renderError(s, errorMsg);
 		}, 1000);
+	},
+
+	notifier: function(msg) {
+		s = this.settings;
+
+  		var tmpl = $('#notify-template').html(),
+            $tmpl = $(tmpl);
+
+		if (msg.length) {
+			$tmpl.find('.notify_text').text(msg);
+			s.container.append($tmpl);
+			$tmpl.hide();
+			$tmpl.fadeIn(s.fadeSpeed);
+			setTimeout(function () {
+				$tmpl.fadeOut(s.fadeSpeed);
+			}, 1000);
+		}
 	},
 
     initJSON: function (s) {
@@ -390,6 +410,13 @@ var simpleStore = {
             e.preventDefault();
             window.location.hash = '';
         });
+
+		// SimpleCart extend
+		simpleCart({
+			afterAdd: function() {
+				simpleStore.notifier('Item added to cart');
+			}
+		});
     },
 
     init: function (options) {
