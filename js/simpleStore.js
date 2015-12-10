@@ -237,6 +237,23 @@ var simpleStore = {
 		}, 1000);
 	},
 
+	notifier: function(msg) {
+		s = this.settings;
+
+  		var tmpl = $('#notify-template').html(),
+            $tmpl = $(tmpl);
+
+		if (msg.length) {
+			$tmpl.find('.notify_text').text(msg);
+			s.container.append($tmpl);
+			$tmpl.hide();
+			$tmpl.fadeIn(s.fadeSpeed);
+			setTimeout(function () {
+				$tmpl.fadeOut(s.fadeSpeed);
+			}, 1000);
+		}
+	},
+
     initJSON: function (s) {
         var errorMsg = 'There was an error loading the JSON file.' +
             ' Please make sure you have "' + s.JSONFile + '" file in' +
@@ -393,6 +410,13 @@ var simpleStore = {
             e.preventDefault();
             window.location.hash = '';
         });
+
+		// SimpleCart extend
+		simpleCart({
+			afterAdd: function() {
+				simpleStore.notifier('Item added to cart');
+			}
+		});
     },
 
     init: function (options) {
