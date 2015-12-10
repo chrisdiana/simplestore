@@ -1129,7 +1129,12 @@ header .navbar-default.scrolled {
     border-bottom: 0px solid #5B90AA;
 }
 footer {
-  padding: 0px 0px;
+  padding: 20px 10px;
+  color: #fff;
+  background: #3D3D3D;
+}
+footer h4 {
+	color: #fff;
 }
 .mobile-topbanner {
 	margin: 0 auto;
