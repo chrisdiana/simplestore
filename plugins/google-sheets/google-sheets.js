@@ -21,29 +21,37 @@ simpleStore.plugins.google = (function() {
 		var spreadsheetURL = hostname + "/feeds/worksheets/" + s.spreadsheetID + "/public/full?alt=" + format;
 		var mainsheetURL = hostname + "/feeds/list/" + s.spreadsheetID + "/od6/public/values?alt=" + format;
 		var settingsSheetName = "Settings";
+		var productsSheetName = "Products";
+		var sheetIDs = {};
 
-		function getSiteSettingsSheetKey (url, callback) {
+		function getSheetInfo (url, callback) {
 			// Need to do this because od6 is default Google Sheet ID
-			var id = '';
-
 			$.getJSON(url)
 				.done(function(data) {
 
 					var sheets = data.feed.entry;
 
 					$(sheets).each(function(i, sheet) {
+
 						var title = sheet.title.$t;
+						var id = sheet.id.$t;
+						var sheetID = id.substr(id.lastIndexOf('/') + 1);
+
 						if(title == settingsSheetName) {
-							id = sheet.id.$t;
+							sheetIDs.settingsSheetID = sheetID;
+						}
+						if(title == productsSheetName) {
+							sheetIDs.productsSheetID  = sheetID;
 						}
 					});
-					callback(id);
+					callback(sheetIDs.settingsSheetID);
+					loadProductData(sheetIDs.productsSheetID);
 				});
 		}
 
-		function loadSiteSettings (id) {
-			var sheetID = id.substr(id.lastIndexOf('/') + 1);
-			var settingsSheetURL = hostname + "/feeds/list/" + s.spreadsheetID + "/" + sheetID + "/public/values?alt=" + format;
+		function loadSiteSettings (id, callback) {
+
+			var settingsSheetURL = hostname + "/feeds/list/" + s.spreadsheetID + "/" + id + "/public/values?alt=" + format;
 
 			$.getJSON(settingsSheetURL)
 				.done(function(data) {
@@ -67,61 +75,66 @@ simpleStore.plugins.google = (function() {
 				});
 		}
 
-		// Get Site Settings Sheet data
-		getSiteSettingsSheetKey(spreadsheetURL, loadSiteSettings);
+		function loadProductData (id) {
 
-		// Get Main Sheet Products data
-		$.getJSON(mainsheetURL)
-			.done(function(data) {
+			var productsSheetURL = hostname + "/feeds/list/" + s.spreadsheetID + "/" + id + "/public/values?alt=" + format;
 
-				var productsData = data.feed.entry;
+			// Get Main Sheet Products data
+			$.getJSON(productsSheetURL)
+				.done(function(data) {
 
-				// Build products
-				$(productsData).each(function(i) {
+					var productsData = data.feed.entry;
 
-					var options = this.gsx$options.$t;
-					var setOptions = function(options) {
-						var productOptions = [];
-						if(options) {
-							var opts = options.split(";").filter(function(el) {return el.length != 0});
-							$(opts).each(function(i, option) {
-								var opt = option.trim().split(":"),
-									key = opt[0],
-									val = opt[1],
-									optObj = {};
+					// Build products
+					$(productsData).each(function(i) {
 
-								optObj[key] = val;
-								productOptions.push(optObj);
-							});
+						var options = this.gsx$options.$t;
+						var setOptions = function(options) {
+							var productOptions = [];
+							if(options) {
+								var opts = options.split(";").filter(function(el) {return el.length != 0});
+								$(opts).each(function(i, option) {
+									var opt = option.trim().split(":"),
+										key = opt[0],
+										val = opt[1],
+										optObj = {};
+
+									optObj[key] = val;
+									productOptions.push(optObj);
+								});
+							}
+							return productOptions;
+						};
+
+						// Get product values
+						var product = {
+							name : this.gsx$name.$t,
+							price : this.gsx$price.$t,
+							description : this.gsx$description.$t,
+							options : setOptions(options),
+							image : this.gsx$image.$t
+						};
+
+						if (verify) {
+							verifyProducts.push(product);
+						} else {
+							storeProducts.push(product);
 						}
-						return productOptions;
-					};
-
-					// Get product values
-					var product = {
-						name : this.gsx$name.$t,
-						price : this.gsx$price.$t,
-						description : this.gsx$description.$t,
-						options : setOptions(options),
-						image : this.gsx$image.$t
-					};
-
+					});
+					callback();
+				})
+				.fail(function(data){
 					if (verify) {
-						verifyProducts.push(product);
+						var errorMsg = 'There was an error validating your cart.';
 					} else {
-						storeProducts.push(product);
+						var errorMsg = 'Error loading spreadsheet data. Make sure the spreadsheet ID is correct.';
 					}
+					setTimeout(function(){ simpleStore.renderError(s, errorMsg); }, 1000);
 				});
-				callback();
-			})
-			.fail(function(data){
-				if (verify) {
-					var errorMsg = 'There was an error validating your cart.';
-				} else {
-					var errorMsg = 'Error loading spreadsheet data. Make sure the spreadsheet ID is correct.';
-				}
-				setTimeout(function(){ simpleStore.renderError(s, errorMsg); }, 1000);
-			});
+		}
+
+		// Get Sheet data
+		getSheetInfo(spreadsheetURL, loadSiteSettings);
 	}
 
 	function validatePrices(s, checkoutData) {
