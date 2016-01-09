@@ -135,6 +135,7 @@ simpleStore.plugins.google = (function() {
 
 		// Get Sheet data
 		getSheetInfo(spreadsheetURL, loadSiteSettings);
+
 	}
 
 	function validatePrices(s, checkoutData) {
@@ -142,7 +143,7 @@ simpleStore.plugins.google = (function() {
 
 		getSpreadsheetData(s, true, function() {
 			if(simpleStore.verifyCheckoutData(checkoutData, verifyProducts, true)) {
-        		simpleStore.checkout();
+        		simpleStore.checkout(s, checkoutData);
 			} else {
 				var errorMsg = 'There was an error validating your cart.';
 				simpleStore.renderError(s, errorMsg);
