@@ -58,6 +58,7 @@ var simpleStore = {
             '': function () {
                 simpleStore.renderProducts(simpleStore.products, s);
             },
+            /*
             // Detail view
             '#product': function () {
                 var id = url.split('#product/')[1].trim();
@@ -67,6 +68,7 @@ var simpleStore = {
             '#cart': function () {
                 simpleStore.renderCart(s);
             }
+            */
         };
 
         if (map[type]) {
@@ -121,14 +123,14 @@ var simpleStore = {
 
 					// Insert data into template
 					simpleStore.insertData($tmpl, product);
-
+					/*
 					// Render detail view on hash change
 					var getDetail = $tmpl.find('.simpleStore_getDetail');
 					getDetail.on('click', function (e) {
 						e.preventDefault();
 						window.location.hash = 'product/' + product.id;
 					});
-
+					*/
 					// Check where to add new item based on row
 					if (i === 0) {
 						i = 1;
