@@ -1,14 +1,14 @@
 # simpleStore
 
-[simpleStore](http://cdmedia.github.io/simplestore) is a clean, responsive
+[simpleStore](http://chrisdiana.github.io/simplestore) is a clean, responsive
 storefront boilerplate with no database you can setup in minutes. simpleStore is built on
 [simpleCart.js](http://simplecartjs.org) and [Skeleton](http://getskeleton.com)
 CSS Framework for a lightweight, fast, simple to use, and completely
 customizable experience.
 
-![simpleStore Screenshot](https://raw.githubusercontent.com/cdmedia/simplestore/gh-pages/images/screenshot-v1.1-full.png)
-![simpleStore Cart Screenshot](https://raw.githubusercontent.com/cdmedia/simplestore/gh-pages/images/screenshot-v1.1-cart.png)
-![simpleStore Detail Screenshot](https://raw.githubusercontent.com/cdmedia/simplestore/gh-pages/images/screenshot-v1.1-detail.png)
+![simpleStore Screenshot](https://raw.githubusercontent.com/chrisdiana/simplestore/gh-pages/images/screenshot-v1.1-full.png)
+![simpleStore Cart Screenshot](https://raw.githubusercontent.com/chrisdiana/simplestore/gh-pages/images/screenshot-v1.1-cart.png)
+![simpleStore Detail Screenshot](https://raw.githubusercontent.com/chrisdiana/simplestore/gh-pages/images/screenshot-v1.1-detail.png)
 
 ---
 
@@ -29,7 +29,7 @@ customizable experience.
 
 # Demo
 
-You can see a working demo [here](http://cdmedia.github.io/simplestore/demo/)
+You can see a working demo [here](http://chrisdiana.github.io/simplestore/demo/)
 
 
 # Installation
@@ -40,7 +40,7 @@ Install with Bower
 bower install
 ```
 
-or manually install using the latest [release](https://github.com/cdmedia/simplestore/releases/latest)
+or manually install using the latest [release](https://github.com/chrisdiana/simplestore/releases/latest)
 
 
 # Setup
@@ -72,7 +72,7 @@ To use a plugin, add a reference just before your `config.js` file
 ## HTML Version
 
 If you are looking for something more basic, check out the [HTML version on this
-branch](https://github.com/cdmedia/simplestore/tree/simplestore-html).
+branch](https://github.com/chrisdiana/simplestore/tree/simplestore-html).
 The HTML version uses plain HTML to build the store instead of a JSON
 file.
 
@@ -107,4 +107,4 @@ If you do wish to contribute, please follow the [Airbnb Javascript Style Guide](
 
 ## List of contributors
 
-You can find the list of contributors [here](https://github.com/cdmedia/simplestore/graphs/contributors).
+You can find the list of contributors [here](https://github.com/chrisdiana/simplestore/graphs/contributors).
