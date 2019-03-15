@@ -1,3 +1,5 @@
+**3/15/19 - UPDATES COMING SOON!**
+
 # simpleStore
 
 [simpleStore](http://chrisdiana.github.io/simplestore) is a clean, responsive
