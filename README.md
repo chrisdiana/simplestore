@@ -1,4 +1,4 @@
-**12/10/19 - UPDATES COMING SOON!**
+**6/10/20 - UPDATES COMING SOON!**
 
 # simpleStore
 
