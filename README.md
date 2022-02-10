@@ -1,4 +1,7 @@
-**6/10/20 - UPDATES COMING SOON!**
+**UPDATES COMING SOON! [Get notified](http://eepurl.com/dHBK11)**
+
+
+[Sign up](http://eepurl.com/gntUvf) to get updates on new features and releases
 
 # simpleStore
 
